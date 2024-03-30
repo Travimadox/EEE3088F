@@ -1,0 +1,629 @@
+\documentclass{sigchi}
+
+% Use this section to set the ACM copyright statement (e.g. for
+% preprints).  Consult the conference website for the camera-ready
+% copyright statement.
+
+% Copyright
+\CopyrightYear{2023}
+%\setcopyright{acmcopyright}
+\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+% DOI
+
+% ISBN
+\isbn{123-4567-24-567/08/06}
+%Conference
+\conferenceinfo{CSC2005Z,}{October 31--10, 2023, Cape Town, SA}
+%Price
+
+
+% Use this command to override the default ACM copyright statement
+% (e.g. for preprints).  Consult the conference website for the
+% camera-ready copyright statement.
+
+%% HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP --
+%% Please note you need to make sure the copy for your specific
+%% license is used here!
+% \toappear{
+% Permission to make digital or hard copies of all or part of this work
+% for personal or classroom use is granted without fee provided that
+% copies are not made or distributed for profit or commercial advantage
+% and that copies bear this notice and the full citation on the first
+% page. Copyrights for components of this work owned by others than ACM
+% must be honored. Abstracting with credit is permitted. To copy
+% otherwise, or republish, to post on servers or to redistribute to
+% lists, requires prior specific permission and/or a fee. Request
+% permissions from \href{mailto:Permissions@acm.org}{Permissions@acm.org}. \\
+% \emph{DIS2020},  July 06--10, 2020, Eindhoven, NL \\
+% ACM xxx-x-xxxx-xxxx-x/xx/xx\ldots \$15.00 \\
+% DOI: \url{http://dx.doi.org/xx.xxxx/xxxxxxx.xxxxxxx}
+% }
+
+% Arabic page numbers for submission.  Remove this line to eliminate
+% page numbers for the camera ready copy
+% \pagenumbering{arabic}
+
+% Load basic packages
+\usepackage{balance}       % to better equalize the last page
+\usepackage{graphics}      % for EPS, load graphicx instead 
+\usepackage[T1]{fontenc}   % for umlauts and other diaeresis
+\usepackage{txfonts}
+\usepackage{mathptmx}
+\usepackage[pdflang={en-US},pdftex]{hyperref}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{textcomp}
+
+% Some optional stuff you might like/need.
+\usepackage{microtype}        % Improved Tracking and Kerning
+% \usepackage[all]{hypcap}    % Fixes bug in hyperref caption linking
+\usepackage{ccicons}          % Cite your images correctly!
+% \usepackage[utf8]{inputenc} % for a UTF8 editor only
+
+% If you want to use todo notes, marginpars etc. during creation of
+% your draft document, you have to enable the "chi_draft" option for
+% the document class. To do this, change the very first line to:
+% "\documentclass[chi_draft]{sigchi}". You can then place todo notes
+% by using the "\todo{...}"  command. Make sure to disable the draft
+% option again before submitting your final document.
+\usepackage{todonotes}
+
+% Paper metadata (use plain text, for PDF inclusion and later
+% re-using, if desired).  Use \emtpyauthor when submitting for review
+% so you remain anonymous.
+\def\plaintitle{Origami Robotics Body-Brain Evolution Across Environments}
+\def\plainauthor{First Author, Second Author, Third Author,
+  Fourth Author, Fifth Author, Sixth Author}
+\def\emptyauthor{}
+\def\plainkeywords{Origami Robotics; Evolutionary Computing}
+\def\plaingeneralterms{Documentation, Standardization}
+
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{
+    \def\UrlFont{\sf}
+  }{
+    \def\UrlFont{\small\bf\ttfamily}
+  }}
+\makeatother
+\urlstyle{leo}
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, to give it a
+% fighting chance of not being over-written, since its job is to
+% redefine many LaTeX commands.
+\definecolor{linkColor}{RGB}{6,125,233}
+\hypersetup{%
+  pdftitle={\plaintitle},
+% Use \plainauthor for final version.
+%  pdfauthor={\plainauthor},
+  pdfauthor={\emptyauthor},
+  pdfkeywords={\plainkeywords},
+  pdfdisplaydoctitle=true, % For Accessibility
+  bookmarksnumbered,
+  pdfstartview={FitH},
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=linkColor,
+  breaklinks=true,
+  hypertexnames=false
+}
+
+% create a shortcut to typeset table headings
+% \newcommand\tabhead[1]{\small\textbf{#1}}
+
+% End of preamble. Here it comes the document.
+\begin{document}
+
+\title{\plaintitle}
+
+\numberofauthors{3}
+\author{%
+  \alignauthor{Travimadox Webb\\
+    \affaddr{Cape Town, South Africa}\\
+    \email{wbbtra001@myuct.ac.za}}\\
+  \alignauthor{Prof.Geoff Nitschke\\
+    \affaddr{Cape Town, South Africa}\\
+    \email{Supervisor}}\\
+  \alignauthor{Rhett Flanagan\\
+    \affaddr{Cape Town, South Africa}\\
+    \email{Co-supervisor}}\\
+}
+
+\maketitle
+
+\begin{abstract}
+  UPDATED---\today. This paper delves into the body-brain evolution of modular origami robots across diverse ambulatory challenges on downward slopes. Specifically, the study assesses the adaptability of these robots against varying friction coefficients. Findings underscore the profound influence of friction on robot performance, revealing both resilience and divergence in adaptability metrics. The insights from this investigation provide a foundation for optimizing origami robot designs for diverse terrains, emphasizing the importance of environmental adaptability in robotic evolution. 
+\end{abstract}
+
+
+% ACM Classfication
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003120.10003121</concept_id>
+<concept_desc>Human-centered computing~Human computer interaction (HCI)</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~Human computer interaction (HCI)}
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003120.10003121</concept_id>
+<concept_desc>Human-centered computing~Human computer interaction (HCI)</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10003120.10003121.10003125.10011752</concept_id>
+<concept_desc>Human-centered computing~Haptic devices</concept_desc>
+<concept_significance>300</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~Human computer interaction (HCI)}
+\ccsdesc[300]{Human-centered computing~Haptic devices}
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003120.10003121</concept_id>
+<concept_desc>Human-centered computing~Human computer interaction (HCI)</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10003120.10003121.10003125.10011752</concept_id>
+<concept_desc>Human-centered computing~Haptic devices</concept_desc>
+<concept_significance>300</concept_significance>
+</concept>
+<concept>
+<concept_id>10003120.10003121.10003122.10003334</concept_id>
+<concept_desc>Human-centered computing~User studies</concept_desc>
+<concept_significance>100</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~Human computer interaction (HCI)}
+\ccsdesc[300]{Human-centered computing~Haptic devices}
+\ccsdesc[100]{Human-centered computing~User studies}
+
+% Author Keywords
+\keywords{\plainkeywords}
+
+
+\section{Introduction}
+Engineers and scientists often turn to nature for inspiration when addressing complex problems. Darwinian biological evolution is a key example, offering insights into adaptability and optimisation that have been employed in various engineering contexts. Within robotics, researchers aim to push the boundaries of adaptability by focusing on developing evolving robots that can autonomously alter their physical structures and computational frameworks to better adapt to unknown environments.
+
+The combination of Artificial Intelligence (AI) and Evolutionary Computing has proven effective. For instance, NASA utilised these technologies in 2006 to design an antenna for their shuttles\cite{lohn2008human} and optimise the design of spaceship hardware for more effective space exploration\cite{noauthor_nasa_2023}. Traditional robot design struggles to anticipate every potential scenario, but AI and Evolutionary Computing offer a pathway to prepare for the unknown.
+
+With the goal of transcending traditional design limitations,this research focuses on Origami Robotics, which merges the ancient Japanese art of paper folding with state-of-the-art robotics technology. The core principle of Origami Robotics is the integration of the robot's "body" and "brain." Here, the body is made of flexible materials capable of mimicking origami folds, transforming its shape, size, and function according to external stimuli. Concurrently, the robot's brain—comprising machine learning algorithms and AI—allows it to process sensory data, make decisions, and adapt through learning.
+
+This adaptability is particularly crucial when navigating diverse terrains, an issue of paramount importance in an increasingly complex world. The challenges of manoeuvring through sloped landscapes, with varying friction and steepness, make the research especially pertinent. Building on the work of Flanagan and Nitschke\cite{flanagan_evolving_2023}, who have studied the adaptive folding of origami robots, our research aims to understand how these robots evolve their body and brain structures when navigating various sloped terrains. The objective is to develop predictive models that enhance control across such landscapes.
+
+
+
+
+\section{Literature Review}
+Origami robots stand out due to their adaptability, lightweight design, and intricate folding capabilities, making them suitable for various applications such as space missions and disaster relief. Pivotal research, such as Li et al., emphasises their unique benefits, such as cost-effectiveness, simplicity, and lightweight nature. It has shown them to be particularly useful in space and swarm robotics\cite{li_soft_2018}.
+
+
+\subsection{Fabrication and Reconfigurability}
+One of the most promising aspects of origami robots is their adaptability and reconfigurability, which hinge significantly on innovative fabrication methods. Belke et al. contribute by offering an origami-inspired approach that mitigates challenges associated with reconfigurability in modular robots. Instead of relying on complex and error-prone connectivity between modules, their method involves arranging the robot modules in a 2D pattern—much like a flat sheet of origami paper—that can quickly transform into a 3D structure\cite{yao_reconfiguration_2019}. This reduces misalignment and mechanical failure risks while increasing energy efficiency through advanced algorithms. Mori, a real-world example, is a testament to this approach's efficacy\cite{belke_mori_2017}.
+
+\subsubsection{Actuation Mechanisms}
+Hu explores using Shape Memory Alloys (SMAs) for actuating origami robots. These alloys offer bi-directional rotational motion and infinite self-deployment possibilities, thus enhancing adaptability in different terrains. However, Hu also highlights limitations like thermomechanical instability that could affect adaptability\cite{hu_review_2021}. Additionally, Tang and Wei identified key actuation methods, including magnetic, light, electric, and thermal mechanisms. Magnetic actuation was especially noted for its ability to enable quick transformations from 2D to 3D configurations. Research on Magnetic Spring Robots (MSRs) equipped with Origami Spring (OS) skeletons extends this concept by showcasing adaptability through a uniform magnetic field\cite{tang_miniaturized_2022}.
+
+
+Building upon actuation innovation, Liu et al. developed a self-folding piston-style actuator that addresses common limitations such as buckling and bending in soft and planar machines. Their design features taffeta-based pouches with elastic elements, leading to linear expansion and contraction, enhancing speed and efficiency. This has been successfully incorporated into a 2-DOF self-folding robotic arm \cite{liu_self-folding_2019}. In a different vein, Li et al. discuss self-actuation mechanisms that rely on electrostatic forces, thus eliminating the need for external actuators. Their design enables multidirectional movement and enhances adaptability by allowing the robot to move through vibrations\cite{li_soft_2018}.
+
+
+Furthermore, The work by Taghavi and Rossiter introduced electro-ribbon actuators, which combine electronic control with origami structures for more robust and scalable robotic applications\cite{taghavi_electro-ribbon_2018}. Lee et al. also emphasised "origami-inspired printed robots," suggesting rapid and cost-effective fabrication processes that are particularly relevant for lightweight and functional designs\cite{lee_origami_2018}.
+
+\subsubsection{Fabrication Techniques and Material Choices}
+Arun et al. reviewed the progress in the field, focusing on the transformative potential of origami techniques in robotic fabrication. They note that 2D patterns that self-fold into 3D structures simplify manufacturing and reduce costs. Also, using embedded actuators made from compliant materials like elastomers and SMAs facilitates adaptability in varied terrains\cite{s_b_advancements_2019}. Also, Lee et al. introduced an innovative fabrication method combining origami geometry with flexible printed circuit sheets. They employ shape memory alloys (SMAs) that allow for nuanced adjustments, which can be beneficial for slope adaptability\cite{lee_origami_2018}. Similarly, Yang et al. propose using Pt-elastomer backbones that offer multifunctional benefits, such as on-demand resistive heating, which could prove crucial for icy terrains\cite{yang_multifunctional_2019}. Zhang et al. contribute another approach by using UV laser scanning on carbon-doped polydimethylsiloxane (cPDMS), which can enable the robot to adapt to high-friction or low-friction slopes\cite{zhang_programmable_2021}.
+
+
+Additionally, Zhakypov et al. present a comprehensive methodology focusing on design aspects like geometry, functional materials, and fabrication methods. They stress the need for converting 3D shapes into 2D crease patterns, which could be instrumental in enabling origami robots to adapt to sloped terrains. Their emphasis on standardisation and process automation is critical for rapid deployment in critical situations like disaster response\cite{zhakypov_design_2018}. Furthermore, Amir et al. offer a transformative perspective focusing on DNA origami robots, indicating potential adaptability at the molecular level. Their robots can perform logical functions based on environmental cues, setting the stage for macroscopic origami robots that can adapt to complex terrains\cite{amir_universal_2014}.
+
+Finally, Daniela Rus and Michael T. Tolley offer an overarching view of origami robots, focusing on the universality of folding as a mechanism for adaptability\cite{rus_design_2018}. While they provide a broad look at design principles, actuation, and control algorithms, a gap remains in understanding how these robots specifically adapt to sloped terrains—a gap that this present research aims to fill.
+
+
+\subsection{Evolving Body and Brains of Modular Robots}
+Modularity in robotics, especially origami robotics, is a pivotal attribute that allows for adaptability in many environments. This section builds upon previous discussions on fabrication methods, now focusing on the evolutionary aspects of modular origami robots.
+
+\subsubsection{Centralised vs. Decentralised Control}
+Kvalsund et al. explored the critical question of centralised versus decentralised control systems in modular robots. They found that decentralised systems offer more robust adaptability across various morphology sizes\cite{kvalsund_centralized_2022}. This is especially relevant to origami robots, which need to adapt to complex terrains. Alattas et al. similarly emphasised the importance of evolutionary algorithms in designing modular robots with self-assembly and self-reconfiguration capabilities, which are critical for adaptability in diverse terrains\cite{alattas_evolutionary_2019}. Their work is a foundational guide for implementing evolutionary algorithms in origami robots. The decentralised control approach advocated by Kvalsund et al. aligns with the self-scalable features proposed by Mena et al. \cite{mena_lopez_modular_2021}. Both works point toward the necessity of robust adaptability across various morphologies, especially relevant to origami robots on complex terrains.
+
+Furthermore, Mena et al. studied modularity and scalability of origami robotics. Their use of dual materials, rigidity and softness presents a new dimension to the adaptability of modular robots, specifically in navigating slopes with varied terrains. Belke and Paik's concept of "Mori" exemplifies using origami principles in the structural design of modular robots\cite{belke_mori_2017}. The capacity for rapid task-specific reconfiguration makes the idea directly relevant to robots navigating sloped terrains. This could serve as a foundational guide for understanding the body-brain adaptability of origami robots. 
+
+
+
+\subsubsection{Co-Evolution of Morphology and Control}
+The notion of co-evolving both the robot's physical form (morphology) and its control mechanisms is a recurring theme. Moreno and Faiña's EMERGE platform offers a framework for this co-evolution in modular robots\cite{moreno_emerge_2021}. Akrour et al. extended this idea, utilising a Genetic Algorithm to co-evolve the morphology and controllers of modular robots\cite{akrour_joint_2017}. Both works align with this study's objectives to explore how origami robots can autonomously adapt their body-brain structures in complex environments.
+
+Veenstra et al. delved into the efficiency of direct and generative encodings for evolving locomotion capabilities\cite{liu_impact_2017}. Their findings are relevant for lightweight origami robots, suggesting that generative encoding strategies could be particularly efficient. Fainã also discussed the representation of morphologies, including the trade-offs between reusability and morphological variability, a research gap this study aims to address\cite{faina_evolving_2021}.
+
+
+\subsubsection{Real-World Applications and Challenges}
+
+Alattas et al. and Belke discussed the real-world applications of modular robots, emphasising their cost-effectiveness and robustness\cite{alattas_evolutionary_2019}. Belke introduced a new paradigm for simplifying the structures of reconfigurable robots\cite{belke_modular_2020}, while Alattas et al. highlighted the potential in disaster response and environmental monitoring. Both provide pathways for addressing the adaptability challenges in origami robots.
+
+
+Additionally, Gao et al. introduced HexaMorph, a hexapod robot designed based on origami principles\cite{gao_hexamorph_2014}. Their work showcases the feasibility of using lightweight materials and modular, reconfigurable designs in creating robots capable of adapting to diverse terrains. This opens up avenues for further research into how origami robots could adjust their body-brain structures for specific ambulatory tasks.
+
+Furthermore, Nygaard examined the concept of morphological adaptation in a quadruped robot, suggesting that a robot's physical body could be a powerful tool for adaptability\cite{nygaard_legging_2020}. Jelisavcic et al. introduced the "triangle-of-life" model for robot evolution, providing a theoretical framework for how origami robots might adapt autonomously to their environments\cite{jelisavcic_real-world_2017}. These works offer new perspectives and research directions, reinforcing the importance of adaptability in robotic design, particularly for origami robots navigating sloped terrains.
+
+Yan et al. introduce the concept of Origami Multiplexed Switches, paving the way for autonomous sensory and computational capabilities in origami robots\cite{yan_origami-based_2023}. This research brings in the dimension of fully integrated autonomous control systems necessary for adaptability in complex terrains. Liu et al. emphasise that simpler designs offer valuable insights into the morphology's influence on performance\cite{liu_impact_2017}. Their work informs the streamlining of modular origami robots' sensory and actuation systems. Moreover, Andreas Lyder's thesis discusses the practicality of modular robots, tested in real-world conditions\cite{lyder_towards_2010}. His focus on open, heterogeneous design and deformability could be significant for the adaptability of origami robots on sloped terrains.
+
+\subsection{Summary}
+Building upon the previous works, this research intends to delve deeper into the intricate relationship between body and brain structures in origami robots. The work of Flanagan and Nitschke, which focuses on  evolutionary adaptive folding and transfer learning, serves as a key inspiration\cite{flanagan_evolving_2023}. By adopting such learning paradigms, we aim to automate the programming of origami robots to enhance their adaptability to different slopes with varying levels of friction, steepness, and shape. The objective is to create a new generation of origami robots that are not just modular and scalable but are also highly adaptable and autonomous.
+
+
+
+\section{Research Questions}
+At the core of this research is the principle of adaptability. As robots find applications in varied environments, their ability to adapt becomes essential, and it involves understanding and responding to changing terrains, effectively making adaptability a fundamental requirement.
+
+\begin{enumerate}
+    \item \textbf{Slope Friction Surface Adaptability:}For high-resistance terrains, we need to address how robots can modify their body-brain to handle such resistance efficiently, allowing for smooth movement on high-friction slope surfaces. The challenge extends beyond just high-resistance surfaces. On terrains with medium friction, how can the robots modify their body-brain to maintain stability and navigate efficiently? Regarding low-friction surfaces, similar to icy terrains, the central concern is: What combination of brain and body changes and strategies can ensure stability and control for the robot? \label{q:first}
+    \item \textbf{Slope Gradient Response:}Gentle slopes present challenges that may not be immediately obvious. What body and brain changes are necessary for a robot to remain stable and move at a controlled pace on such slopes? When the terrain becomes steeper, the challenges multiply due to the increased influence of gravity. The key question here is: How can robots maintain balance and move in the desired direction on steep slopes?\label{q:second}
+    \item \textbf{Slope Shape Adaptability:}Different slope shapes present unique challenges. Concave slopes, with their inward curve, can cause robots to topple forward. What body-brain modifications can help prevent this? On the other hand, convex slopes, curving outward, can make robots slide backwards. How should robots adjust their body and brain to counteract this tendency and ensure effective movement across these terrains?\label{q:third}
+
+\end{enumerate}
+
+
+
+
+\section{Methodology}
+A rigorous systematic approach is employed to investigate the adaptability of origami robots across varied terrains, incorporating both real-world experimental setups and advanced simulation techniques. 
+
+The experimentation framework is anchored around brick-shaped modules. These modules were selected due to their proven versatility and adaptability, as evidenced in the work of Flanagan and Nitschke\cite{flanagan_evolving_2023}\footnote{\href{https://github.com/Rhett-Flanagan/revolve2-folding/tree/triangle-folding}{Flanagan and Nitschke}}. Their paper showcased the resilience and flexibility of such designs, making them an optimal choice for this study.
+
+For this study, specialised terrains will be designed as evaluation grounds for the origami robots. The primary objective behind these designs is to mimic challenges robots might encounter in real-world scenarios. To achieve this, the terrain surfaces are adjusted based on distinct coefficients of friction: notably 1.0, 0.5, and 0.1. Furthermore, terrains are differentiated by their steepness, encompassing gentle inclinations and pronounced descents. Another level of complexity is introduced by shaping the terrains into concave and convex forms, challenging the robots with unique navigational obstacles. These deliberate modifications serve a dual purpose: they not only replicate real-world conditions but also rigorously test the adaptability of the robots across varied situations. The experiments simulations will be conducted using Mujoco Advanced Physics Simulator Gym\cite{todorov2012mujoco}\footnote{\href{https://github.com/google-deepmind/mujoco}{Mujoco Advanced Physics Simulator}}, housed within the Mujoco platform\footnote{\href{https://mujoco.org/}{Mujoco}}. This platform, chosen for its fidelity to real-world physics, offers a profound understanding of the nuanced interactions between robots and their environments.
+
+A systematic documentation process is maintained throughout the origami robots' navigation of these terrains, explicitly focusing on the distance they traverse. This metric, the sole and central point of measurement, is a pivotal indicator in the investigative approach. Utilising an evolutionary strategy, the robot designs are refined and iterated upon. This methodological approach ensures the identification and evolution of the most adaptable configurations, as detailed below:
+
+
+\begin{algorithm}
+\caption{Evolutionary Algorithm for Experimentation}
+\begin{algorithmic}[1]
+\STATE \textbf{Initialize logging and configuration settings}
+
+\STATE \textbf{Initialize or Create Database}
+\IF{Database not exist}
+    \STATE Create new database schema
+\ENDIF
+
+\FOR{each Experiment}
+    \STATE Set up random seed
+    \STATE Save experiment details in database
+    \STATE Initialize evaluation environment
+    \STATE Create Innovation Databases
+
+    \STATE \textbf{Initial Population Generation}
+    \STATE Generate initial population with random characteristics
+
+    \FOR{each individual in the initial population}
+        \STATE Run simulation
+        \STATE Record fitness
+    \ENDFOR
+
+    \STATE Save initial generation in database
+
+    \STATE \textbf{Evolutionary Loop}
+    \FOR{each Generation}
+        \STATE \textbf{Parent Selection}
+        \STATE Select parents based on fitness
+
+        \STATE \textbf{Crossover and Mutation}
+        \STATE Generate offspring by combining characteristics of parents
+
+        \STATE \textbf{Offspring Evaluation}
+        \FOR{each offspring}
+            \STATE Run simulation
+            \STATE Record fitness
+        \ENDFOR
+
+        \STATE \textbf{Survival Selection}
+        \STATE Select individuals for the next generation from parents and offspring based on fitness
+
+        \STATE Save generation details in database
+
+        \IF{stopping criteria met}
+            \STATE Break
+        \ENDIF
+    \ENDFOR
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+
+
+By embracing both experimental and simulation-based methods, the methodology aims to provide a comprehensive understanding of origami robot adaptability across various terrains.
+
+
+
+\section{Experiments}
+\subsection{Objective}
+This study aims to assess the adaptability of modular origami robots as they traverse downward slopes, with a focus on the impact of varying friction coefficients. It is noteworthy that the modular robots used in this experiment are sensorless, which was an intentional design choice due to time and technical constraints.
+
+\subsection{Reference Framework}
+
+This work draws inspiration from the studies of Flanagan and Nitschke, who explored the adaptability of origami robots moving up slopes\cite{flanagan_evolving_2023}. The performance metrics are aligned with those suggested by Wong et al.\cite{wong2002performance}, emphasizing the importance of measuring the distance traversed by the robot.
+
+\subsection{ Experimental Environment}
+
+The experiments will be conducted in the Mujoco simulation environment. The friction property of the simulated slope will be set to Pyramidal to accurately mimic the specific type of friction under investigation, as opposed to using an elliptical model.
+
+\subsection{Slope Setup}
+
+A slope with a 15-degree incline will be used for the ambulatory tasks. This specific degree was chosen based on existing literature that suggests 15 degrees as an appropriate slope angle for such studies.
+
+\subsection{ Variables and Metrics}
+
+Three separate experiments will be conducted, each varying the coefficient of friction for the slope. The coefficients selected for the study are as follows:
+
+\begin{enumerate}
+    \item 0.1
+
+    \item 0.5
+
+    \item 1.0
+\end{enumerate}
+
+\subsection{Evaluation Metrics}
+
+The primary metric for evaluating robot adaptability is the distance traversed across the terrain as the robot moves downward. This aligns with the evaluation framework established in prior research by Wong et al\cite{wong2002performance}.
+
+ 
+ 
+
+\section{Results and Discussion}
+\subsection{Preliminary Preview}
+
+The experiment's most fit individual demonstrates a locomotive strategy predominantly characterized by a series of propulsions, manifesting as hops and jumps. This suggests that the structural design of the modular origami robot is specifically optimized to exploit gravitational forces inherent to the downward slope. The sequential images in Figure \ref{fig:Most Fit Modular Origami Robot} capture various phases of this movement, indicating the robot's reliance on kinetic energy and momentum transfer for progression.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{sigchi-latex-proceedings copy//figures/OriMostFit.png}
+    \caption{Figure Showing various Phases of Motion of the Modular Origami Robot}
+    \label{fig:Most Fit Modular Origami Robot}
+\end{figure}
+
+The segmented construction, evident from the images, coupled with the distinctive red base, implies a design conducive to kinetic actuation. The segments are presumably engineered to facilitate a coordinated mechanism, allowing for contractions and expansions that culminate in the generation of propulsive forces. This hop-based mode of travel is particularly noteworthy given the absence of sensory systems within the robot, necessitating an intrinsic stability and force management solely derived from its physical architecture and the mechanical interplay with the sloped terrain. Moreover, the adaptability exhibited by this automaton is of significant interest. It underscores a reliance on the robot's form efficiency and a set of physical dynamics to navigate the slope. 
+
+Videos of the robot movement can be found at: \url{https://github.com/Travimadox/revolve2-folding/tree/Origami/Origami_Experiment_Videos_Images}
+%Link coming soon
+
+\subsection{Friction Coefficient of 0.1}
+The graph in Figure \ref{fig:f0.1}  and Table \ref{tab:stats_0.1}  below shows the results from the experiment:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{sigchi-latex-proceedings copy/figures/F_0_1.png}
+    \caption{Fitness Graph for Friction coefficient of 0.1}
+    \label{fig:f0.1}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\caption{Statistical Summary for Friction Coefficient of 0.1}
+\label{tab:stats_0.1}
+\begin{tabular}{ccc}
+\hline
+Statistic & Max Fitness & Mean Fitness \\
+\hline
+Mean & 0.632& 0.165\\
+Standard Deviation & 0.195& 0.073\\
+Median & 0.692& 0.178\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Observations}
+
+\begin{enumerate}
+    \item Initial Adaptation (Generations 0-20): At the start of the simulation, there's a notable increase in mean and maximum fitness. The mean fitness begins at a normalized value of approximately 0.165, steadily increasing, reflecting the robots' quick adaptability to the slope with the given coefficient. The maximum fitness also exhibits a positive trend, starting at a normalized value of around 0.631 and moving upwards.
+    \item Stabilization Phase (Generations 20-60): After the initial phase, from around the 20th generation, the mean and maximum fitness curves stabilize. The progression becomes more gradual, suggesting that the robots have achieved a certain level of adaptability to the given conditions, with the median values reaching 0.692 for maximum fitness and 0.178 for mean fitness.
+    \item Late Generations (Generations 60-100): As the generations advance, the maximum fitness subtly increases, with a recorded maximum fitness of approximately 0.823. The mean fitness, while also increasing, does so at a slower pace, indicating a consistent adaptation over time.
+    \item Variability in Fitness (Shaded Areas): The shaded regions around the mean and maximum fitness lines indicate the standard deviation across repetitions. The standard deviation for maximum fitness is 0.195, while for mean fitness, it is approximately 0.073, highlighting a higher variability in maximum fitness values.
+\end{enumerate}
+
+
+\subsubsection{Discussion}
+
+\begin{enumerate}
+    \item \textbf{Rapid Initial Adaptation:} The initial generations displayed a remarkable capacity for adaptation. Starting at a normalized mean of 0.165, the fitness value increased steadily, suggesting an efficient optimization process within the robot's algorithm for quick adaptation to the frictional environment.
+    
+    \item \textbf{Stabilization of Adaptation:} Following the initial surge in fitness, the stabilization phase indicated that the robots reached a plateau in their adaptive capabilities. The median fitness values—0.692 for maximum and 0.178 for mean—suggest that while improvements were still being made, the enhancement rate had slowed, likely due to approaching the optimization limits within the given environmental parameters.
+    
+    \item \textbf{Consistent Late-Generation Improvement:} The continued yet subtle improvement in maximum fitness up to a value of approximately 0.823 demonstrates that even beyond the stabilization phase, the robots were still finding ways to incrementally improve their performance, which could be indicative of a robust evolutionary algorithm capable of fine-tuning adaptations over time.
+    
+    \item \textbf{Variability and Performance Range:} The standard deviation provides insight into the variability of the population's fitness. The observed variability, especially in the maximum fitness (std of 0.195), may indicate a wide range of individual strategies within the robot population. This diversity is a positive attribute in evolutionary algorithms, allowing for greater solution space exploration.
+\end{enumerate}
+
+The results underscore the ability of modular origami robots to adapt to environments with different friction coefficients. The gradual increase in fitness values over generations showcases the potential of evolutionary algorithms to enhance robotic adaptation. With the median and mean values indicating a more accurate representation of the general performance, it is clear that while the best-performing robots significantly improved, the overall population also adapted well.
+
+\subsection{Friction Coefficient of 0.5}
+The graph in Figure \ref{fig:f0.5}  and Table \ref{tab:stats_0.5} below shows the results from the experiment:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\linewidth]{sigchi-latex-proceedings copy/figures/F_0_5.png}
+    \caption{Fitness Graph for the Friction coefficient of 0.5}
+    \label{fig:f0.5}
+\end{figure}
+
+
+\begin{table}[h!]
+\centering
+\caption{Statistical Summary for Friction Coefficient of 0.5}
+\label{tab:stats_0.5}
+\begin{tabular}{ccc}
+\hline
+Statistic & Max Fitness & Mean Fitness \\
+\hline
+Mean & 0.577 & 0.171 \\
+Standard Deviation & 0.197 & 0.082 \\
+Median & 0.616 & 0.164 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Observations}
+\begin{enumerate}
+    \item Early Fluctuations (Generations 0-10): The initial generations are characterised by considerable fluctuations, with the mean fitness showing a sharp spike from a normalised value of approximately 0.171 before stabilising. The maximum fitness also shows a similar spike from a normalised mean of 0.577, indicating rapid adaptation followed by stabilisation.
+    \item Steady Progress (Generations 10-50): After the initial fluctuations, there is a consistent increase in both fitness metrics. This steady progress suggests an ongoing improvement in the robots' adaptability to the increased friction.
+    \item Late Phase Variability (Generations 50-100): Post the 50th generation, the maximum fitness experiences a slight dip but recovers to a peak of approximately 0.760. The mean fitness also undergoes slight fluctuations but maintains an upward trend, with a median value of 0.164 by the 100th generation.
+    \item Variability in Fitness (Shaded Areas): The shaded areas indicating standard deviation show that early generations have a higher performance variability, with a standard deviation of 0.082 for mean fitness and 0.197 for maximum fitness. This variability decreases for mean fitness but slightly increases for maximum fitness as the experiment progresses.
+\end{enumerate}
+
+Overall, for a friction coefficient of 0.5, the modular origami robots exhibit an initial period of volatility in fitness values, followed by a steady improvement over successive generations. Despite minor variations, the trend in fitness values suggests an overall positive adaptation to the frictional conditions.
+
+\subsubsection{Discussion}
+
+\begin{enumerate}
+    \item \textbf{Initial Response to Environmental Change:} The early fluctuations in fitness values could reflect an exploratory phase where robots test various strategies to overcome the increased friction. The rapid initial changes followed by stabilisation suggest that the robots quickly converge on effective adaptations.
+    
+    \item \textbf{Consistency in Adaptation:} The steady rise in fitness metrics from generations 10 to 50 demonstrates the robots' ability to consistently refine their performance, possibly optimising locomotion or control strategies to cope with the frictional challenge.
+    
+    \item \textbf{Resilience to Late-Generation Challenges:} The slight dip in maximum fitness around the 50th generation followed by a recovery indicates resilience in the robots' adaptive processes. The fact that the robots could regain and even surpass previous fitness levels speaks to the robustness of their evolutionary algorithm.
+    
+    \item \textbf{Performance Variability Insights:} The standard deviation in fitness scores reveals the range of adaptability within the robot population. A decreasing standard deviation in mean fitness over time indicates a homogenising effect, where robots tend to converge on similar performance levels. In contrast, the slight increase in variability for maximum fitness in later generations suggests that while the average performance stabilises, the potential for outliers with exceptional performance persists.
+\end{enumerate}
+
+These findings confirm the robots' capability to adapt to varying frictional conditions and highlight the dynamic nature of their evolutionary adaptation. The balance between exploratory behaviour in early generations and the stabilisation of fitness in later generations underscores the effectiveness of the evolutionary strategies employed by these robotic systems.
+
+
+\subsection{Friction Coefficient of 1.0}
+The graph in Figure \ref{fig:f1.0}  and Table \ref{tab:stats_1.0} below shows the results from the experiment:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\linewidth]{sigchi-latex-proceedings copy/figures/F_1_0.png}
+    \caption{Fitness Graph for the Friction coefficient of 0.5}
+    \label{fig:f1.0}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\caption{Statistical Summary for Friction Coefficient of 1.0}
+\label{tab:stats_1.0}
+\begin{tabular}{ccc}
+\hline
+Statistic & Max Fitness & Mean Fitness \\
+\hline
+Mean & 0.494 & 0.126 \\
+Standard Deviation & 0.175 & 0.054 \\
+Median & 0.532 & 0.142 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsubsection{Observations}
+\begin{enumerate}
+    \item \textbf{Quick Initial Growth (Generations 0-20):} There is a rapid increase in fitness values, with the mean fitness rising from a normalized mean of approximately 0.126 and the maximum fitness from around 0.494. This illustrates the robots' immediate adaptability to high friction conditions.
+    
+    \item \textbf{Plateau and Fluctuations (Generations 20-50):} After the initial surge, the fitness values go through phases of plateaus and fluctuations. The maximum fitness reaches a peak and then exhibits a decline, while the mean fitness stabilizes with a median of 0.142.
+    
+    \item \textbf{Decline in Late Generations (Generations 50-100):} The latter half of the experiment shows a decline in the maximum fitness. The mean fitness experiences slight undulations but generally maintains a level around the median value.
+    
+    \item \textbf{Variability in Fitness (Shaded Areas):} The standard deviation within the population is considerable, with a std of 0.174 for maximum fitness and 0.054 for mean fitness, indicating a significant range of individual adaptabilities within the robot population, particularly in the face of higher friction challenges.
+\end{enumerate}
+
+In summary, with a friction coefficient of 1.0, the modular origami robots demonstrated rapid initial adaptability, followed by fluctuations and a notable decline in maximum fitness values. Despite these challenges, the robots exhibited a resilient mean fitness level, suggesting an effective adaptation to the high friction conditions.
+
+\subsubsection{Discussion}
+\begin{enumerate}
+    \item \textbf{Immediate Adaptation Strategies:} The robots' ability to rapidly increase their fitness at the beginning of the simulation indicates effective initial strategies to counteract the high-friction environment. This rapid adaptation is crucial for survival in challenging new environments.
+    
+    \item \textbf{Fluctuations as Adaptation Refinement:} The fluctuations following the initial growth may represent the robots' trial-and-error process to refine their adaptation strategies. The median fitness values suggest a general trend toward increased adaptability despite the fluctuations.
+    
+    \item \textbf{Stabilization Amidst Challenges:} The late-generation stabilization of maximum fitness at nearly the maximum possible value  indicates that some robots in the population managed to find highly effective solutions to the friction challenge.
+    
+    \item \textbf{Diverse Adaptation Levels:} The considerable variability in fitness scores throughout the experiment suggests that while some robots successfully adapted, others struggled more. This variability is a key feature of evolutionary processes, providing a buffer against environmental changes.
+\end{enumerate}
+
+This discussion highlights the dynamic adaptation process of modular origami robots in high-friction environments and underscores the importance of variability and resilience in evolutionary robotics.
+
+
+\section{Conclusion}
+
+The series of experiments conducted on modular origami robots across different frictional conditions have yielded significant insights into the adaptability and evolutionary mechanisms of origami robots. Analysis of the results for friction coefficients of 0.1, 0.5, and 1.0 has provided a comprehensive understanding of how these robots respond to varying environmental challenges. Here, we encapsulate the key findings and their implications for evolutionary robotics.
+
+\subsection{Adaptation Across Varying Friction Coefficients}
+
+\begin{enumerate}
+    \item \textbf{Rapid Adaptation and Initial Growth:} Across all frictional conditions, the robots demonstrated an ability to adapt to new environments rapidly. This was especially evident in the lower friction scenarios (0.1 and 0.5), where the initial generations showed a swift increase in fitness levels. Even at the highest friction level (1.0), the robots managed a notable initial growth, underscoring the efficiency of their adaptive algorithms.
+    
+    \item \textbf{Stabilization and Refinement:} Post-initial adaptation, robots experienced phases of stabilization and refinement, suggesting that their evolutionary algorithms were optimizing performance within the environmental constraints. This was observed as a plateau in the middle generations, especially for friction coefficients of 0.1 and 0.5.
+    
+    \item \textbf{Resilience to Environmental Stressors:} At the highest friction coefficient (1.0), robots declined maximum fitness during the late generations but maintained a steady mean fitness. This resilience to stressors reflects the robustness of their evolutionary design, enabling sustained performance even as conditions become more challenging.
+    
+    \item \textbf{Variability as a Feature of Evolution:} The variability in fitness, as indicated by the standard deviation across all experiments, highlights the diverse range of adaptive strategies within the robot populations. Such diversity is crucial for the evolution of populations, allowing them to maintain adaptability to sudden environmental changes.
+\end{enumerate}
+
+\subsection{Significance of the Findings}
+
+The adaptability displayed by the modular origami robots across varying frictional conditions has several implications:
+
+\begin{enumerate}
+    \item \textbf{Design Implications:} The robots' ability to adapt rapidly suggests that the design of their control and locomotion systems is highly effective. This insight can inform the development of robotic systems intended to operate in diverse and unpredictable environments.
+    
+    \item \textbf{Algorithmic Efficiency:} The observed adaptation patterns indicate that the underlying evolutionary algorithms can efficiently optimise under varying constraints. This efficiency is key for developing autonomous systems requiring minimal human intervention.
+    
+    \item \textbf{Robustness and Resilience:} The sustained adaptability in the face of increased friction demonstrates the robustness of the robots' evolutionary mechanisms. This resilience is particularly significant for applications in harsh or dynamic environments, such as search and rescue missions or planetary exploration.
+    
+    \item \textbf{Evolutionary Dynamics:} The experiments underscore the importance of variability within populations for adaptive success. This finding is congruent with biological principles and reaffirms the value of evolutionary approaches in robotics.
+\end{enumerate}
+
+In conclusion, the experiments have shed light on the adaptive capabilities of modular origami robots and provided valuable data that can be leveraged to enhance future designs and algorithms. The robots' performance across different frictional conditions demonstrates the potential of evolutionary robotics to develop systems capable of thriving in many environments, ultimately advancing the frontier of autonomous robotic research and application.
+ 
+
+
+\section{Future Work}
+
+Building on the insights and learnings from this study, there are several avenues for further exploration:
+
+\begin{enumerate}
+    \item Introducing Sensors: The sensorless nature of the robots was a design constraint in this study. Incorporating sensors in future models can offer a better understanding of the environment, potentially leading to enhanced adaptability.
+    \item Exploring Other Environmental Variables and Slope variations: Besides friction, other environmental variables like slope material, curvature,  can also influence robot performance. Studying these can provide a more holistic understanding of adaptability.
+    \item In-depth Analysis of High Performers: It would be invaluable to dissect the strategies of robots that consistently showcased high fitness values. Understanding their mechanics and algorithms can shed light on best practices for adaptability.
+    \item Evolutionary Algorithm Improvements: The fluctuations and declines observed in certain experiments hint at potential improvements in the evolutionary algorithms driving the robots. Refining these algorithms might lead to even better performance trajectories.
+\end{enumerate}
+In conclusion, this study has unearthed pivotal insights into the adaptability of modular origami robots in varying friction environments. As robotics continues to push boundaries, understanding these nuances will be integral to designing systems that are both robust and versatile in real-world scenarios.
+
+ 
+% BALANCE COLUMNS
+\balance{}
+
+% REFERENCES FORMAT
+% References must be the same font size as other body text.
+\bibliographystyle{SIGCHI-Reference-Format}
+\bibliography{sample}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
